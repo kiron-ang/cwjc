@@ -13,6 +13,7 @@ addresses_without_duplicates_lines = []
 number_of_matches = 0
 expected_matches = len(audrey_lines)
 number_of_updates = 0
+first_row = audrey_lines[0]
 
 for audrey_line in audrey_lines:
   matched = 0
@@ -76,7 +77,10 @@ for audrey_line in audrey_lines:
       pass
   if matched == 0:
     print("NO MATCH FOR", first_name, last_name, pref_email)
-      
+
+string_to_write = ",".join(first_row)
+addresses_without_duplicates.write(string_to_write)
+
 for line in addresses_without_duplicates_lines:
   string_to_write = ",".join(line)
   addresses_without_duplicates.write(string_to_write)
@@ -89,3 +93,4 @@ addresses_without_duplicates.close()
 # investigate those records later
 print("NUMBER OF MATCHES:", number_of_matches)
 print("EXPECTED MATCHES", expected_matches)
+print("NUMBER OF UPDATES", number_of_updates)
